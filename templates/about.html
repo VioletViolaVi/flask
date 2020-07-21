@@ -1,0 +1,62 @@
+{% extends "base.html" %} {% block content %}
+
+<h2>{{page_title}}</h2>
+<p>
+  Cory in the House is an American television series which aired on the Disney
+  Channel from January 12, 2007, to September 12, 2008, and was a spin-off from
+  the Disney show That's So Raven. The show focuses on Cory Baxter, who moves
+  from San Francisco, California to Washington, D.C. with his father, after
+  Victor Baxter gets a new job in the White House as the official head chef. The
+  series marks a Disney Channel first, as it is the channel's first spin-off.
+  This is also the only Disney Channel spin-off series to be broadcast in
+  standard definition for the entire length of the show. Reruns of the series
+  have not been aired on Disney Channel, or on Disney XD; however, they continue
+  to air on the Family channel in Canada. Raven-Symoné guest-starred, reprising
+  her role as Raven Baxter in only one episode. In 2014, Disney Channel started
+  airing a weekly block called Disney Replay on Wednesdays nights, during which
+  episodes of Cory in the House air alongside That's So Raven and Kim Possible,
+  among others.
+</p>
+
+{% for member in company %}
+
+<div class="row featurette">
+  {% if loop.index % 2 !=0 %}
+
+  <div class="col-md-7">
+    <h3>{{loop.index}} {{member.name}}</h3>
+    <p>
+      {{member.description}}
+    </p>
+  </div>
+  <div class="col-md-5">
+    <img
+      class="featurette-image img-responsive"
+      src="{{member.image_source}}"
+      alt="A photo of a Cory in the house character."
+    />
+  </div>
+  {% else %}
+  <div class="col-md-5">
+    <img
+      class="featurette-image img-responsive"
+      src="{{member.image_source}}"
+      alt="A photo of a Cory in the house character."
+    />
+  </div>
+  <div class="col-md-7">
+    <h3>{{loop.index}} {{member.name}}</h3>
+    <p>
+      {{member.description}}
+    </p>
+  </div>
+  {% endif %}
+</div>
+
+{% if loop.index != 9 %}
+<hr class="featurette-divider" />
+
+{% endif %} 
+
+{% endfor %} 
+{% endblock %}
